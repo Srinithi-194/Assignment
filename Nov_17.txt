@@ -85,16 +85,6 @@ insert into emp values(3,'John','HTML');
 select * from emp;
 
 
-create database mphasis;
-use mphasis;
 
-create table student(studid int primary key,studname varchar(20),marks int);
-create table course(courseid varchar(10) primary key,coursename varchar(20),facu varchar(20));
-create table detail(studid int,courseid varchar(10),studname varchar(20),coursename varchar(20),facu varchar(20),marks int,primary key(studid,courseid));
-insert into detail values(1,'c1','Ramesh','Java','Amit',90);
-insert into detail values(1,'c2','Ramesh','Python','Seema',85);
-insert into detail values(2,'c1','Anita','Java','Amit',78);
-select * from detail;
-drop table detail;
 
 
