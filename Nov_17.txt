@@ -98,30 +98,3 @@ select * from detail;
 drop table detail;
 
 
-create table cust(oid int primary key,custname varchar(20));
-create table product(pid varchar(10) primary key,prodname varchar(20),quant int);
-create table customer(oid int,pid varchar(10),prodname varchar(20),custname varchar(20),quant int,primary key(oid,pid));
-insert into customer values(01,'P1','Pen','Raj',2);
-insert into customer values(01,'P2','Pencil','Raj',1);
-insert into customer values(02,'P1','Pen','Meena',3);
-select * from customer;
-
-
-create table emp(eid int primary key,empname varchar(20),hrs int);
-create table project(pid varchar(10) primary key,projname varchar(20));
-create table det(eid int,pid varchar(10),empname varchar(20),projname varchar(20),hrs int,primary key(eid,pid));
-insert into det values(1,'P1','Ravi','WebApp',20);
-insert into det values(1,'P2','Ravi','MobileApp',30);
-insert into det values(2,'P1','Anita','WebApp',25);
-select * from det;
-
-
-create table drive(did varchar(10) primary key,dname varchar(20));
-create table route(rid varchar(10) primary key,rouname varchar(20),dist varchar(10));
-create table dist(did varchar(10),rid varchar(10),dname varchar(20),rouname varchar(20),dist varchar(10),primary key(did,rid));
-insert into dist values('D1','R1','Amit','Airport Route','4okm');
-insert into dist values('D1','R2','Amit','City Route','20km');
-insert into dist values('D2','R1','Sunil','Airport Route','40km');
-select * from dist;
-drop table dist;
-
