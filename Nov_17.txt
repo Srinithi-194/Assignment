@@ -85,6 +85,190 @@ insert into emp values(3,'John','HTML');
 select * from emp;
 
 
+CREATE TABLE Student (
+    StudentID INT PRIMARY KEY,
+    StudentName VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Course (
+    CourseID VARCHAR(10) PRIMARY KEY,
+    CourseName VARCHAR(50) NOT NULL,
+    Faculty VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Enrollment (
+    StudentID INT NOT NULL,
+    CourseID VARCHAR(10) NOT NULL,
+    Marks INT NOT NULL,
+    PRIMARY KEY (StudentID, CourseID),
+    FOREIGN KEY (StudentID) REFERENCES Student(StudentID),
+    FOREIGN KEY (CourseID) REFERENCES Course(CourseID)
+);
+
+
+INSERT INTO Student (StudentID, StudentName) VALUES
+(1, 'Ramesh'),
+(2, 'Anita');
+
+
+INSERT INTO Course (CourseID, CourseName, Faculty) VALUES
+('C1', 'Java',   'Amit'),
+('C2', 'Python', 'Seema');
+
+
+INSERT INTO Enrollment (StudentID, CourseID, Marks) VALUES
+(1, 'C1', 90),
+(1, 'C2', 85),
+(2, 'C1', 78);
+
+
+CREATE TABLE Orders (
+    OrderID VARCHAR(10) PRIMARY KEY,
+    CustomerName VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Product (
+    ProductID VARCHAR(10) PRIMARY KEY,
+    ProductName VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE OrderDetails (
+    OrderID VARCHAR(10) NOT NULL,
+    ProductID VARCHAR(10) NOT NULL,
+    Quantity INT NOT NULL,
+    PRIMARY KEY (OrderID, ProductID),
+    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
+    FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
+);
+
+
+INSERT INTO Orders (OrderID, CustomerName) VALUES
+('O1', 'Raj'),
+('O2', 'Meena');
+
+INSERT INTO Product (ProductID, ProductName) VALUES
+('P1', 'Pen'),
+('P2', 'Pencil');
+
+INSERT INTO OrderDetails (OrderID, ProductID, Quantity) VALUES
+('O1', 'P1', 2),
+('O1', 'P2', 1),
+('O2', 'P1', 3);
+
+
+CREATE TABLE Employee (
+    EmpID INT PRIMARY KEY,
+    EmpName VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Project (
+    ProjectID VARCHAR(10) PRIMARY KEY,
+    ProjectName VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE EmpProject (
+    EmpID INT NOT NULL,
+    ProjectID VARCHAR(10) NOT NULL,
+    HoursWorked INT NOT NULL,
+    PRIMARY KEY (EmpID, ProjectID),
+    FOREIGN KEY (EmpID) REFERENCES Employee(EmpID),
+    FOREIGN KEY (ProjectID) REFERENCES Project(ProjectID)
+);
+
+
+INSERT INTO Employee (EmpID, EmpName) VALUES
+(1, 'Ravi'),
+(2, 'Anita');
+
+
+INSERT INTO Project (ProjectID, ProjectName) VALUES
+('P1', 'WebApp'),
+('P2', 'MobileApp');
+
+
+INSERT INTO EmpProject (EmpID, ProjectID, HoursWorked) VALUES
+(1, 'P1', 20),
+(1, 'P2', 30),
+(2, 'P1', 25);
+
+CREATE TABLE Driver (
+    DriverID VARCHAR(10) PRIMARY KEY,
+    DriverName VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Route (
+    RouteID VARCHAR(10) PRIMARY KEY,
+    RouteName VARCHAR(50) NOT NULL,
+    Distance VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE DriverRoute (
+    DriverID VARCHAR(10) NOT NULL,
+    RouteID VARCHAR(10) NOT NULL,
+    PRIMARY KEY (DriverID, RouteID),
+    FOREIGN KEY (DriverID) REFERENCES Driver(DriverID),
+    FOREIGN KEY (RouteID) REFERENCES Route(RouteID)
+);
+
+
+INSERT INTO Driver (DriverID, DriverName) VALUES
+('D1', 'Amit'),
+('D2', 'Sunil');
+
+
+INSERT INTO Route (RouteID, RouteName, Distance) VALUES
+('R1', 'Airport Route', '40 km'),
+('R2', 'City Route',    '20 km');
+
+INSERT INTO DriverRoute (DriverID, RouteID) VALUES
+('D1', 'R1'),
+('D1', 'R2'),
+('D2', 'R1');
+
+
+CREATE TABLE Orders (
+    OrderID VARCHAR(10) PRIMARY KEY,
+    CustomerName VARCHAR(50) NOT NULL,
+    City VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Product (
+    ProductID VARCHAR(10) PRIMARY KEY,
+    ProductName VARCHAR(50) NOT NULL,
+    Price DECIMAL(10,2) NOT NULL
+);
+
+
+CREATE TABLE OrderLine (
+    OrderID VARCHAR(10) NOT NULL,
+    ProductID VARCHAR(10) NOT NULL,
+    Quantity INT NOT NULL,
+    PRIMARY KEY (OrderID, ProductID, Quantity),
+    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
+    FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
+);
+
+
+INSERT INTO Orders (OrderID, CustomerName, City) VALUES
+('O1', 'Ravi',  'Mumbai'),
+('O2', 'Meena', 'Delhi');
+
+INSERT INTO Product (ProductID, ProductName, Price) VALUES
+('P1', 'Pen',  10.00),
+('P2', 'Book', 100.00),
+('P3', 'Bag',  500.00);
+
+INSERT INTO OrderLine (OrderID, ProductID, Quantity) VALUES
+('O1', 'P1', 2),
+('O1', 'P1', 3);
+
+
+INSERT INTO OrderLine (OrderID, ProductID, Quantity) VALUES
+('O2', 'P2', 1);
+
+INSERT INTO OrderLine (OrderID, ProductID, Quantity) VALUES
+('O2', 'P3', 1),
+('O2', 'P3', 2);
 
 
 
