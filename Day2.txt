@@ -1,0 +1,40 @@
+insert into offices(officeCode,city,phone,addressLine1,addressLine2,state,country,postalCode,territory) values ('133','Chennai','124688654','Chennai',NULL,'Tamil Nadu','India','123456','India');
+ 
+INSERT INTO employees
+(employeeNumber, lastName, firstName, extension, email, officeCode, reportsTo, jobTitle)
+VALUES (234, 'Manager', 'Default', 'x234', 'manager234@company.com', '133', NULL, 'Manager');
+ 
+insert into customers (customerNumber,
+customerName,
+contactLastName,
+contactFirstName,
+phone,
+addressLine1,
+addressLine2,
+city,
+state,
+postalCode,
+country,
+salesRepEmployeeNumber,
+creditLimit) values (20,'sibijamal','sibi','jamal','1234567890','Chennai',NULL,'Chennai','Tamil Nadi','1223454','India',234,2000);
+ 
+select * from productLines;
+select * from products;
+select * from customers;
+select * from payments;
+select * from orders;
+select * from employees;
+select * from offices;
+update customers set creditlimit=creditlimit*0.10 where country='Germany';
+insert into products values (295,'apple','Classic Cars','erytfg','sam','good',56,23,54);
+update payments set amount=3454 where checkNumber='HQ336336';
+update offices set phone='34567897' where country='London';
+select * from customers where creditLimit>50000;
+select * from employees where officecode in(select officeCode from offices where city='San Francisco');
+select * from orders where status='shipped' and year(orderDate)=2004;
+select * from products where buyPrice>=50 and buyPrice<=100;
+select * from employees where employeenumber=1143;
+select * from customers where city like 's%';
+select * from orders where comments like '%urgent%';
+select * from payments where year(paymentdate)=2003;
+select customerNumber,sum(amount) from payments group by customerNumber;
