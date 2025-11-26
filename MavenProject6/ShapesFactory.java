@@ -1,0 +1,15 @@
+package com.mph.MavenProject6;
+
+public class ShapesFactory {
+	
+	public static Shape getShape(String type) {
+		if(type.equals("circle")) {
+			return new Circle();
+		}
+		if(type.equals("square")) {
+			return new Square();
+		}
+		return null;
+	}
+
+}
