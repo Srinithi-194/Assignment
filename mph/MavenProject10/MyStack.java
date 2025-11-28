@@ -1,0 +1,57 @@
+package com.mph.MavenProject10;
+
+import java.util.Scanner;
+
+public class MyStack {
+
+	private static Node top=null;
+	
+	public static boolean isEmpty() {
+		return top==null;
+	}
+	
+	public static Node createNode() {
+		Scanner sc=new Scanner(System.in);
+		int data=sc.nextInt();
+		return new Node(data);
+		
+	}
+	
+	public static void push() {
+		Node newNode=createNode();
+		if(top==null) {
+			top=newNode;
+		}
+		else {
+			newNode.setNext(top);
+			top=newNode;	
+		}
+		System.out.println("node inserted successfull" + newNode.getData());
+	}
+	
+	public static void pop() {
+		if(isEmpty()) {
+			System.out.println("Stack Underflow");
+			
+		}
+		else {
+			System.out.println(top.getData() + "is popped");
+			Node temp=top;
+			top=top.getNext();
+			temp.setNext(null);
+		}
+	}
+	
+	public static void display() {
+		if(isEmpty()) {
+			System.out.println("No stack exists");
+		}
+		else {
+			Node temp=top;
+			while(temp!=null) {
+				System.out.println(temp.getData());
+				temp=temp.getNext();
+			}
+		}
+	}
+}
